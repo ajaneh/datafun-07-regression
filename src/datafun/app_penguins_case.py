@@ -248,8 +248,8 @@ def fit_line(X: np.ndarray, y: np.ndarray) -> LinearRegression:
     # OPTIONAL sanity check - the library is not magic.
     # numpy can fit the same straight line directly: degree 1 returns
     # [slope, intercept]. Uncomment to confirm the values match.
-    #   np_slope, np_intercept = np.polyfit(X.ravel(), y, 1)
-    #   LOG.debug(f"  numpy check -> slope {np_slope:.6g}, intercept {np_intercept:.6g}")
+    np_slope, np_intercept = np.polyfit(X.ravel(), y, 1)
+    LOG.debug(f"  numpy check -> slope {np_slope:.6g}, intercept {np_intercept:.6g}")
 
     return model
 
