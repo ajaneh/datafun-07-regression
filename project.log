@@ -1199,3 +1199,360 @@ write down what you conclude.
 2026-06-25 13:32:38 | INFO | P07 | shell=powershell
 2026-06-25 13:32:38 | INFO | P07 | cwd=.
 2026-06-25 13:32:38 | INFO | P07 | github_actions=False
+2026-06-25 15:59:03 | INFO | P07 | === RUN START ===
+2026-06-25 15:59:03 | INFO | P07 | project=P07
+2026-06-25 15:59:03 | INFO | P07 | repo_dir=datafun-07-regression
+2026-06-25 15:59:03 | INFO | P07 | python=3.14.0
+2026-06-25 15:59:03 | INFO | P07 | os=Windows 11
+2026-06-25 15:59:03 | INFO | P07 | shell=powershell
+2026-06-25 15:59:03 | INFO | P07 | cwd=.
+2026-06-25 15:59:03 | INFO | P07 | github_actions=False
+2026-06-25 15:59:03 | INFO | P07 | === RUN START ===
+2026-06-25 15:59:03 | INFO | P07 | project=REGRESSION
+2026-06-25 15:59:03 | INFO | P07 | repo_dir=datafun-07-regression
+2026-06-25 15:59:03 | INFO | P07 | python=3.14.0
+2026-06-25 15:59:03 | INFO | P07 | os=Windows 11
+2026-06-25 15:59:03 | INFO | P07 | shell=powershell
+2026-06-25 15:59:03 | INFO | P07 | cwd=.
+2026-06-25 15:59:03 | INFO | P07 | github_actions=False
+2026-06-25 15:59:03 | INFO | P07 | ========================
+2026-06-25 15:59:03 | INFO | P07 | START main()
+2026-06-25 15:59:03 | INFO | P07 | ========================
+2026-06-25 15:59:03 | INFO | P07 | --- Section 2: Load dataset: owid-co2-data-subset ---
+2026-06-25 15:59:03 | INFO | P07 | Loading dataset: owid-co2-data-subset
+2026-06-25 15:59:03 | INFO | P07 | Loaded: 350 rows, 14 columns
+2026-06-25 15:59:03 | INFO | P07 | --- Section 3: Prepare a modeling view (feature + target) ---
+2026-06-25 15:59:03 | INFO | P07 | Creating modeling view (dropping rows missing feature or target)
+2026-06-25 15:59:03 | DEBUG | P07 | Columns required to be non-missing: ['gdp', 'co2']
+2026-06-25 15:59:03 | INFO | P07 | Original rows: 350
+2026-06-25 15:59:03 | INFO | P07 | Model rows:               country  year   population           gdp       co2  co2_per_capita  coal_co2   oil_co2   gas_co2  \
+0           Brazil  1990  149143223.0  1.185475e+12   218.658           1.466    37.095   151.775     7.484   
+1           Brazil  1991  151724253.0  1.213090e+12   229.394           1.512    42.466   156.700     7.336   
+2           Brazil  1992  154275077.0  1.221829e+12   233.601           1.514    41.203   163.252     7.983   
+3           Brazil  1993  156794574.0  1.298221e+12   244.306           1.558    42.343   171.252     8.730   
+4           Brazil  1994  159265011.0  1.391784e+12   254.002           1.595    43.664   179.165     8.985   
+..             ...   ...          ...           ...       ...             ...       ...       ...       ...   
+308  United States  2018  335056492.0  1.812469e+13  5361.236          16.001  1224.380  2305.441  1577.716   
+309  United States  2019  337790069.0  1.854055e+13  5235.912          15.500  1043.896  2299.820  1632.056   
+310  United States  2020  339436156.0  1.802736e+13  4689.954          13.817   853.925  1991.579  1612.504   
+311  United States  2021  340161438.0  1.909938e+13  5020.111          14.758   979.504  2182.605  1617.424   
+312  United States  2022  341534041.0  1.949317e+13  5055.403          14.802   916.343  2198.937  1707.391   
+
+     cement_co2  methane  nitrous_oxide  total_ghg  temperature_change_from_co2  
+0        11.062  365.410        100.456   2105.299                        0.030  
+1        11.776  373.664        103.996   2189.194                        0.031  
+2         9.770  379.587        106.648   2267.928                        0.031  
+3        10.164  382.577        110.082   2282.487                        0.032  
+4        10.086  391.601        111.742   2672.895                        0.033  
+..          ...      ...            ...        ...                          ...  
+308      38.971  777.600        249.199   6466.737                        0.233  
+309      40.896  799.062        244.477   6360.787                        0.236  
+310      40.688  761.174        241.329   5758.456                        0.238  
+311      41.312  789.440        244.912   6131.129                        0.240  
+312      41.884  801.907        241.442   6201.504                        0.242  
+
+[297 rows x 14 columns]
+2026-06-25 15:59:03 | INFO | P07 | Rows dropped:  53
+2026-06-25 15:59:03 | INFO | P07 | --- Section 4: Build feature matrix X and target vector y ---
+2026-06-25 15:59:03 | INFO | P07 | Building feature matrix X and target vector y
+2026-06-25 15:59:03 | DEBUG | P07 | X shape: (297, 1)  (rows, features)
+2026-06-25 15:59:03 | DEBUG | P07 | y shape: (297,)  (rows,)
+2026-06-25 15:59:03 | INFO | P07 | --- Section 5: Fit a straight line (numpy and scikit-learn) ---
+2026-06-25 15:59:03 | INFO | P07 | Fitting a linear regression (scikit-learn)
+2026-06-25 15:59:03 | DEBUG | P07 |   slope:     4.48153e-10
+2026-06-25 15:59:03 | DEBUG | P07 |   intercept: -346.04
+2026-06-25 15:59:03 | INFO | P07 | Fitted line:
+2026-06-25 15:59:03 | INFO | P07 |   co2 = 4.48153e-10 * gdp + -346.04
+2026-06-25 15:59:03 | DEBUG | P07 |   numpy check -> slope 4.48153e-10, intercept -346.04
+2026-06-25 15:59:03 | INFO | P07 | --- Section 6: Predict fitted values and an example value ---
+2026-06-25 15:59:03 | INFO | P07 | Computing fitted values for every observed row
+2026-06-25 15:59:03 | INFO | P07 | Predicting CO2_Emissions for one example GDP_Exlude_Global value
+2026-06-25 15:59:03 | DEBUG | P07 |   example gdp: 1e+12
+2026-06-25 15:59:03 | DEBUG | P07 |   predicted co2: 102.112
+2026-06-25 15:59:03 | INFO | P07 | --- Section 7: Examine the fit (residuals, R-squared, RMSE) ---
+2026-06-25 15:59:03 | INFO | P07 | Computing residuals (actual - fitted)
+2026-06-25 15:59:03 | INFO | P07 | Fit numbers (requires interpretation):
+2026-06-25 15:59:03 | DEBUG | P07 |   R-squared: 0.8668
+2026-06-25 15:59:03 | DEBUG | P07 |   RMSE:      915.252  (in units of CO2_Emissions)
+2026-06-25 15:59:03 | DEBUG | P07 |   residual min:  -3334.47
+2026-06-25 15:59:03 | DEBUG | P07 |   residual max:  3730.3
+2026-06-25 15:59:03 | DEBUG | P07 |   residual mean: 2.6948e-13
+2026-06-25 15:59:03 | INFO | P07 | --- Section 8: Charts ---
+2026-06-25 15:59:03 | INFO | P07 | ---- Creating Scatter Plot with Fitted Line ----------
+2026-06-25 15:59:03 | INFO | P07 | ----   Set x to GDP_Exlude_Global -----------------------
+2026-06-25 15:59:03 | INFO | P07 | ----   Set y to CO2_Emissions -------------------------
+2026-06-25 15:59:05 | INFO | P07 | ------ Creating Residual Plot --------------------------
+2026-06-25 15:59:05 | INFO | P07 | ------   Set x to GDP_Exlude_Global ----------------------
+2026-06-25 15:59:05 | INFO | P07 | ------   Set y to the residual (actual - fitted) -------
+2026-06-25 15:59:05 | INFO | P07 | --- Section 9: Summary and next steps ---
+2026-06-25 15:59:05 | INFO | P07 | ========================
+2026-06-25 15:59:05 | INFO | P07 | SUMMARY
+2026-06-25 15:59:05 | INFO | P07 | ========================
+2026-06-25 15:59:05 | INFO | P07 | Dataset: owid-co2-data-subset
+2026-06-25 15:59:05 | INFO | P07 | Feature (x): gdp
+2026-06-25 15:59:05 | INFO | P07 | Target  (y): co2
+2026-06-25 15:59:05 | INFO | P07 | Original rows: 350
+2026-06-25 15:59:05 | INFO | P07 | Model rows:    297
+2026-06-25 15:59:05 | INFO | P07 | Fitted line:
+2026-06-25 15:59:05 | INFO | P07 |   co2 = 4.48153e-10 * gdp + -346.04
+2026-06-25 15:59:05 | INFO | P07 | ======================
+2026-06-25 15:59:05 | INFO | P07 | Review the fit numbers (R-squared, RMSE). 
+2026-06-25 15:59:05 | INFO | P07 | Look at the fitted-line plot and the residual plot. 
+2026-06-25 15:59:05 | INFO | P07 | Decide if a `straight line` is a fair description. 
+2026-06-25 15:59:05 | INFO | P07 | If the residuals DO show a pattern (e.g. curve, funnel, clusters),
+2026-06-25 15:59:05 | INFO | P07 | then a straight line is NOT a good description. 
+2026-06-25 15:59:05 | INFO | P07 | If the residuals DO NOT show a pattern,
+2026-06-25 15:59:05 | INFO | P07 | then a straight line MIGHT be a good description. 
+2026-06-25 15:59:05 | INFO | P07 | Either way, the findings may be valuable.
+2026-06-25 15:59:05 | INFO | P07 | ======================
+2026-06-25 15:59:05 | INFO | P07 | Repeat with a different feature, or a transformed feature, 
+2026-06-25 15:59:05 | INFO | P07 | to investigate other options.
+2026-06-25 15:59:05 | INFO | P07 | ======================
+2026-06-25 15:59:05 | INFO | P07 | Include instructions and specifics in your README.md file.
+2026-06-25 15:59:05 | INFO | P07 | Write up your narrative on your docs/index.md file.
+2026-06-25 15:59:05 | INFO | P07 | Include your next step suggestions for further analysis or modeling.
+2026-06-25 15:59:05 | INFO | P07 | ======================
+2026-06-25 15:59:05 | INFO | P07 | ----- in a script, call plt.show() once at the end to display all charts -----
+2026-06-25 15:59:05 | INFO | P07 | ----- in a script, close the chart windows (with the close button) to continue  -----
+2026-06-25 16:00:35 | INFO | P07 | Linear regression workflow complete
+2026-06-25 16:00:35 | INFO | P07 | IMPORTANT: This script creates chart windows.
+2026-06-25 16:00:35 | INFO | P07 | Close any chart windows and terminate this process with CTRL+c as needed.
+2026-06-25 16:00:35 | INFO | P07 | ========================
+2026-06-25 16:00:35 | INFO | P07 | Executed successfully!
+2026-06-25 16:00:35 | INFO | P07 | ========================
+2026-06-25 16:01:34 | INFO | P07 | === RUN START ===
+2026-06-25 16:01:34 | INFO | P07 | project=P07
+2026-06-25 16:01:34 | INFO | P07 | repo_dir=datafun-07-regression
+2026-06-25 16:01:34 | INFO | P07 | python=3.14.0
+2026-06-25 16:01:34 | INFO | P07 | os=Windows 11
+2026-06-25 16:01:34 | INFO | P07 | shell=powershell
+2026-06-25 16:01:34 | INFO | P07 | cwd=.
+2026-06-25 16:01:34 | INFO | P07 | github_actions=False
+2026-06-25 16:01:34 | INFO | P07 | === RUN START ===
+2026-06-25 16:01:34 | INFO | P07 | project=REGRESSION
+2026-06-25 16:01:34 | INFO | P07 | repo_dir=datafun-07-regression
+2026-06-25 16:01:34 | INFO | P07 | python=3.14.0
+2026-06-25 16:01:34 | INFO | P07 | os=Windows 11
+2026-06-25 16:01:34 | INFO | P07 | shell=powershell
+2026-06-25 16:01:34 | INFO | P07 | cwd=.
+2026-06-25 16:01:34 | INFO | P07 | github_actions=False
+2026-06-25 16:01:34 | INFO | P07 | ========================
+2026-06-25 16:01:34 | INFO | P07 | START main()
+2026-06-25 16:01:34 | INFO | P07 | ========================
+2026-06-25 16:01:34 | INFO | P07 | --- Section 2: Load dataset: owid-co2-data-subset ---
+2026-06-25 16:01:34 | INFO | P07 | Loading dataset: owid-co2-data-subset
+2026-06-25 16:01:34 | INFO | P07 | Loaded: 350 rows, 14 columns
+2026-06-25 16:01:34 | INFO | P07 | --- Section 3: Prepare a modeling view (feature + target) ---
+2026-06-25 16:01:34 | INFO | P07 | Creating modeling view (dropping rows missing feature or target)
+2026-06-25 16:01:34 | DEBUG | P07 | Columns required to be non-missing: ['gdp', 'co2']
+2026-06-25 16:01:34 | INFO | P07 | Original rows: 350
+2026-06-25 16:01:34 | INFO | P07 | Model rows:               country  year   population           gdp       co2  co2_per_capita  coal_co2   oil_co2   gas_co2  \
+0           Brazil  1990  149143223.0  1.185475e+12   218.658           1.466    37.095   151.775     7.484   
+1           Brazil  1991  151724253.0  1.213090e+12   229.394           1.512    42.466   156.700     7.336   
+2           Brazil  1992  154275077.0  1.221829e+12   233.601           1.514    41.203   163.252     7.983   
+3           Brazil  1993  156794574.0  1.298221e+12   244.306           1.558    42.343   171.252     8.730   
+4           Brazil  1994  159265011.0  1.391784e+12   254.002           1.595    43.664   179.165     8.985   
+..             ...   ...          ...           ...       ...             ...       ...       ...       ...   
+308  United States  2018  335056492.0  1.812469e+13  5361.236          16.001  1224.380  2305.441  1577.716   
+309  United States  2019  337790069.0  1.854055e+13  5235.912          15.500  1043.896  2299.820  1632.056   
+310  United States  2020  339436156.0  1.802736e+13  4689.954          13.817   853.925  1991.579  1612.504   
+311  United States  2021  340161438.0  1.909938e+13  5020.111          14.758   979.504  2182.605  1617.424   
+312  United States  2022  341534041.0  1.949317e+13  5055.403          14.802   916.343  2198.937  1707.391   
+
+     cement_co2  methane  nitrous_oxide  total_ghg  temperature_change_from_co2  
+0        11.062  365.410        100.456   2105.299                        0.030  
+1        11.776  373.664        103.996   2189.194                        0.031  
+2         9.770  379.587        106.648   2267.928                        0.031  
+3        10.164  382.577        110.082   2282.487                        0.032  
+4        10.086  391.601        111.742   2672.895                        0.033  
+..          ...      ...            ...        ...                          ...  
+308      38.971  777.600        249.199   6466.737                        0.233  
+309      40.896  799.062        244.477   6360.787                        0.236  
+310      40.688  761.174        241.329   5758.456                        0.238  
+311      41.312  789.440        244.912   6131.129                        0.240  
+312      41.884  801.907        241.442   6201.504                        0.242  
+
+[297 rows x 14 columns]
+2026-06-25 16:01:34 | INFO | P07 | Rows dropped:  53
+2026-06-25 16:01:34 | INFO | P07 | --- Section 4: Build feature matrix X and target vector y ---
+2026-06-25 16:01:34 | INFO | P07 | Building feature matrix X and target vector y
+2026-06-25 16:01:34 | DEBUG | P07 | X shape: (297, 1)  (rows, features)
+2026-06-25 16:01:34 | DEBUG | P07 | y shape: (297,)  (rows,)
+2026-06-25 16:01:34 | INFO | P07 | --- Section 5: Fit a straight line (numpy and scikit-learn) ---
+2026-06-25 16:01:34 | INFO | P07 | Fitting a linear regression (scikit-learn)
+2026-06-25 16:01:34 | DEBUG | P07 |   slope:     4.48153e-10
+2026-06-25 16:01:34 | DEBUG | P07 |   intercept: -346.04
+2026-06-25 16:01:34 | INFO | P07 | Fitted line:
+2026-06-25 16:01:34 | INFO | P07 |   co2 = 4.48153e-10 * gdp + -346.04
+2026-06-25 16:01:34 | DEBUG | P07 |   numpy check -> slope 4.48153e-10, intercept -346.04
+2026-06-25 16:01:34 | INFO | P07 | --- Section 6: Predict fitted values and an example value ---
+2026-06-25 16:01:34 | INFO | P07 | Computing fitted values for every observed row
+2026-06-25 16:01:34 | INFO | P07 | Predicting CO2_Emissions for one example GDP_Exlude_Global value
+2026-06-25 16:01:34 | DEBUG | P07 |   example gdp: 1e+12
+2026-06-25 16:01:34 | DEBUG | P07 |   predicted co2: 102.112
+2026-06-25 16:01:34 | INFO | P07 | --- Section 7: Examine the fit (residuals, R-squared, RMSE) ---
+2026-06-25 16:01:34 | INFO | P07 | Computing residuals (actual - fitted)
+2026-06-25 16:01:34 | INFO | P07 | Fit numbers (requires interpretation):
+2026-06-25 16:01:34 | DEBUG | P07 |   R-squared: 0.8668
+2026-06-25 16:01:34 | DEBUG | P07 |   RMSE:      915.252  (in units of CO2_Emissions)
+2026-06-25 16:01:34 | DEBUG | P07 |   residual min:  -3334.47
+2026-06-25 16:01:34 | DEBUG | P07 |   residual max:  3730.3
+2026-06-25 16:01:34 | DEBUG | P07 |   residual mean: 2.6948e-13
+2026-06-25 16:01:34 | INFO | P07 | --- Section 8: Charts ---
+2026-06-25 16:01:34 | INFO | P07 | ---- Creating Scatter Plot with Fitted Line ----------
+2026-06-25 16:01:34 | INFO | P07 | ----   Set x to GDP_Exlude_Global -----------------------
+2026-06-25 16:01:34 | INFO | P07 | ----   Set y to CO2_Emissions -------------------------
+2026-06-25 16:01:34 | INFO | P07 | ------ Creating Residual Plot --------------------------
+2026-06-25 16:01:34 | INFO | P07 | ------   Set x to GDP_Exlude_Global ----------------------
+2026-06-25 16:01:34 | INFO | P07 | ------   Set y to the residual (actual - fitted) -------
+2026-06-25 16:01:35 | INFO | P07 | --- Section 9: Summary and next steps ---
+2026-06-25 16:01:35 | INFO | P07 | ========================
+2026-06-25 16:01:35 | INFO | P07 | SUMMARY
+2026-06-25 16:01:35 | INFO | P07 | ========================
+2026-06-25 16:01:35 | INFO | P07 | Dataset: owid-co2-data-subset
+2026-06-25 16:01:35 | INFO | P07 | Feature (x): gdp
+2026-06-25 16:01:35 | INFO | P07 | Target  (y): co2
+2026-06-25 16:01:35 | INFO | P07 | Original rows: 350
+2026-06-25 16:01:35 | INFO | P07 | Model rows:    297
+2026-06-25 16:01:35 | INFO | P07 | Fitted line:
+2026-06-25 16:01:35 | INFO | P07 |   co2 = 4.48153e-10 * gdp + -346.04
+2026-06-25 16:01:35 | INFO | P07 | ======================
+2026-06-25 16:01:35 | INFO | P07 | Review the fit numbers (R-squared, RMSE). 
+2026-06-25 16:01:35 | INFO | P07 | Look at the fitted-line plot and the residual plot. 
+2026-06-25 16:01:35 | INFO | P07 | Decide if a `straight line` is a fair description. 
+2026-06-25 16:01:35 | INFO | P07 | If the residuals DO show a pattern (e.g. curve, funnel, clusters),
+2026-06-25 16:01:35 | INFO | P07 | then a straight line is NOT a good description. 
+2026-06-25 16:01:35 | INFO | P07 | If the residuals DO NOT show a pattern,
+2026-06-25 16:01:35 | INFO | P07 | then a straight line MIGHT be a good description. 
+2026-06-25 16:01:35 | INFO | P07 | Either way, the findings may be valuable.
+2026-06-25 16:01:35 | INFO | P07 | ======================
+2026-06-25 16:01:35 | INFO | P07 | Repeat with a different feature, or a transformed feature, 
+2026-06-25 16:01:35 | INFO | P07 | to investigate other options.
+2026-06-25 16:01:35 | INFO | P07 | ======================
+2026-06-25 16:01:35 | INFO | P07 | Include instructions and specifics in your README.md file.
+2026-06-25 16:01:35 | INFO | P07 | Write up your narrative on your docs/index.md file.
+2026-06-25 16:01:35 | INFO | P07 | Include your next step suggestions for further analysis or modeling.
+2026-06-25 16:01:35 | INFO | P07 | ======================
+2026-06-25 16:01:35 | INFO | P07 | ----- in a script, call plt.show() once at the end to display all charts -----
+2026-06-25 16:01:35 | INFO | P07 | ----- in a script, close the chart windows (with the close button) to continue  -----
+2026-06-25 16:03:45 | INFO | P07 | === RUN START ===
+2026-06-25 16:03:45 | INFO | P07 | project=P07
+2026-06-25 16:03:45 | INFO | P07 | repo_dir=datafun-07-regression
+2026-06-25 16:03:45 | INFO | P07 | python=3.14.0
+2026-06-25 16:03:45 | INFO | P07 | os=Windows 11
+2026-06-25 16:03:45 | INFO | P07 | shell=powershell
+2026-06-25 16:03:45 | INFO | P07 | cwd=.
+2026-06-25 16:03:45 | INFO | P07 | github_actions=False
+2026-06-25 16:03:45 | INFO | P07 | === RUN START ===
+2026-06-25 16:03:45 | INFO | P07 | project=REGRESSION
+2026-06-25 16:03:45 | INFO | P07 | repo_dir=datafun-07-regression
+2026-06-25 16:03:45 | INFO | P07 | python=3.14.0
+2026-06-25 16:03:45 | INFO | P07 | os=Windows 11
+2026-06-25 16:03:45 | INFO | P07 | shell=powershell
+2026-06-25 16:03:45 | INFO | P07 | cwd=.
+2026-06-25 16:03:45 | INFO | P07 | github_actions=False
+2026-06-25 16:03:45 | INFO | P07 | ========================
+2026-06-25 16:03:45 | INFO | P07 | START main()
+2026-06-25 16:03:45 | INFO | P07 | ========================
+2026-06-25 16:03:45 | INFO | P07 | --- Section 2: Load dataset: owid-co2-data-subset ---
+2026-06-25 16:03:45 | INFO | P07 | Loading dataset: owid-co2-data-subset
+2026-06-25 16:03:45 | INFO | P07 | Loaded: 350 rows, 14 columns
+2026-06-25 16:03:45 | INFO | P07 | --- Section 3: Prepare a modeling view (feature + target) ---
+2026-06-25 16:03:45 | INFO | P07 | Creating modeling view (dropping rows missing feature or target)
+2026-06-25 16:03:45 | DEBUG | P07 | Columns required to be non-missing: ['gdp', 'co2']
+2026-06-25 16:03:45 | INFO | P07 | Original rows: 350
+2026-06-25 16:03:45 | INFO | P07 | Model rows:               country  year   population           gdp       co2  co2_per_capita  coal_co2   oil_co2   gas_co2  \
+0           Brazil  1990  149143223.0  1.185475e+12   218.658           1.466    37.095   151.775     7.484   
+1           Brazil  1991  151724253.0  1.213090e+12   229.394           1.512    42.466   156.700     7.336   
+2           Brazil  1992  154275077.0  1.221829e+12   233.601           1.514    41.203   163.252     7.983   
+3           Brazil  1993  156794574.0  1.298221e+12   244.306           1.558    42.343   171.252     8.730   
+4           Brazil  1994  159265011.0  1.391784e+12   254.002           1.595    43.664   179.165     8.985   
+..             ...   ...          ...           ...       ...             ...       ...       ...       ...   
+308  United States  2018  335056492.0  1.812469e+13  5361.236          16.001  1224.380  2305.441  1577.716   
+309  United States  2019  337790069.0  1.854055e+13  5235.912          15.500  1043.896  2299.820  1632.056   
+310  United States  2020  339436156.0  1.802736e+13  4689.954          13.817   853.925  1991.579  1612.504   
+311  United States  2021  340161438.0  1.909938e+13  5020.111          14.758   979.504  2182.605  1617.424   
+312  United States  2022  341534041.0  1.949317e+13  5055.403          14.802   916.343  2198.937  1707.391   
+
+     cement_co2  methane  nitrous_oxide  total_ghg  temperature_change_from_co2  
+0        11.062  365.410        100.456   2105.299                        0.030  
+1        11.776  373.664        103.996   2189.194                        0.031  
+2         9.770  379.587        106.648   2267.928                        0.031  
+3        10.164  382.577        110.082   2282.487                        0.032  
+4        10.086  391.601        111.742   2672.895                        0.033  
+..          ...      ...            ...        ...                          ...  
+308      38.971  777.600        249.199   6466.737                        0.233  
+309      40.896  799.062        244.477   6360.787                        0.236  
+310      40.688  761.174        241.329   5758.456                        0.238  
+311      41.312  789.440        244.912   6131.129                        0.240  
+312      41.884  801.907        241.442   6201.504                        0.242  
+
+[297 rows x 14 columns]
+2026-06-25 16:03:45 | INFO | P07 | Rows dropped:  53
+2026-06-25 16:03:45 | INFO | P07 | --- Section 4: Build feature matrix X and target vector y ---
+2026-06-25 16:03:45 | INFO | P07 | Building feature matrix X and target vector y
+2026-06-25 16:03:45 | DEBUG | P07 | X shape: (297, 1)  (rows, features)
+2026-06-25 16:03:45 | DEBUG | P07 | y shape: (297,)  (rows,)
+2026-06-25 16:03:45 | INFO | P07 | --- Section 5: Fit a straight line (numpy and scikit-learn) ---
+2026-06-25 16:03:45 | INFO | P07 | Fitting a linear regression (scikit-learn)
+2026-06-25 16:03:45 | DEBUG | P07 |   slope:     4.48153e-10
+2026-06-25 16:03:45 | DEBUG | P07 |   intercept: -346.04
+2026-06-25 16:03:45 | INFO | P07 | Fitted line:
+2026-06-25 16:03:45 | INFO | P07 |   co2 = 4.48153e-10 * gdp + -346.04
+2026-06-25 16:03:45 | DEBUG | P07 |   numpy check -> slope 4.48153e-10, intercept -346.04
+2026-06-25 16:03:45 | INFO | P07 | --- Section 6: Predict fitted values and an example value ---
+2026-06-25 16:03:45 | INFO | P07 | Computing fitted values for every observed row
+2026-06-25 16:03:45 | INFO | P07 | Predicting CO2_Emissions for one example GDP_Exlude_Global value
+2026-06-25 16:03:45 | DEBUG | P07 |   example gdp: 1e+12
+2026-06-25 16:03:45 | DEBUG | P07 |   predicted co2: 102.112
+2026-06-25 16:03:45 | INFO | P07 | --- Section 7: Examine the fit (residuals, R-squared, RMSE) ---
+2026-06-25 16:03:45 | INFO | P07 | Computing residuals (actual - fitted)
+2026-06-25 16:03:45 | INFO | P07 | Fit numbers (requires interpretation):
+2026-06-25 16:03:45 | DEBUG | P07 |   R-squared: 0.8668
+2026-06-25 16:03:45 | DEBUG | P07 |   RMSE:      915.252  (in units of CO2_Emissions)
+2026-06-25 16:03:45 | DEBUG | P07 |   residual min:  -3334.47
+2026-06-25 16:03:45 | DEBUG | P07 |   residual max:  3730.3
+2026-06-25 16:03:45 | DEBUG | P07 |   residual mean: 2.6948e-13
+2026-06-25 16:03:45 | INFO | P07 | --- Section 8: Charts ---
+2026-06-25 16:03:45 | INFO | P07 | ---- Creating Scatter Plot with Fitted Line ----------
+2026-06-25 16:03:45 | INFO | P07 | ----   Set x to GDP_Exlude_Global -----------------------
+2026-06-25 16:03:45 | INFO | P07 | ----   Set y to CO2_Emissions -------------------------
+2026-06-25 16:03:46 | INFO | P07 | ------ Creating Residual Plot --------------------------
+2026-06-25 16:03:46 | INFO | P07 | ------   Set x to GDP_Exlude_Global ----------------------
+2026-06-25 16:03:46 | INFO | P07 | ------   Set y to the residual (actual - fitted) -------
+2026-06-25 16:03:46 | INFO | P07 | --- Section 9: Summary and next steps ---
+2026-06-25 16:03:46 | INFO | P07 | ========================
+2026-06-25 16:03:46 | INFO | P07 | SUMMARY
+2026-06-25 16:03:46 | INFO | P07 | ========================
+2026-06-25 16:03:46 | INFO | P07 | Dataset: owid-co2-data-subset
+2026-06-25 16:03:46 | INFO | P07 | Feature (x): gdp
+2026-06-25 16:03:46 | INFO | P07 | Target  (y): co2
+2026-06-25 16:03:46 | INFO | P07 | Original rows: 350
+2026-06-25 16:03:46 | INFO | P07 | Model rows:    297
+2026-06-25 16:03:46 | INFO | P07 | Fitted line:
+2026-06-25 16:03:46 | INFO | P07 |   co2 = 4.48153e-10 * gdp + -346.04
+2026-06-25 16:03:46 | INFO | P07 | ======================
+2026-06-25 16:03:46 | INFO | P07 | Review the fit numbers (R-squared, RMSE). 
+2026-06-25 16:03:46 | INFO | P07 | Look at the fitted-line plot and the residual plot. 
+2026-06-25 16:03:46 | INFO | P07 | Decide if a `straight line` is a fair description. 
+2026-06-25 16:03:46 | INFO | P07 | If the residuals DO show a pattern (e.g. curve, funnel, clusters),
+2026-06-25 16:03:46 | INFO | P07 | then a straight line is NOT a good description. 
+2026-06-25 16:03:46 | INFO | P07 | If the residuals DO NOT show a pattern,
+2026-06-25 16:03:46 | INFO | P07 | then a straight line MIGHT be a good description. 
+2026-06-25 16:03:46 | INFO | P07 | Either way, the findings may be valuable.
+2026-06-25 16:03:46 | INFO | P07 | ======================
+2026-06-25 16:03:46 | INFO | P07 | Repeat with a different feature, or a transformed feature, 
+2026-06-25 16:03:46 | INFO | P07 | to investigate other options.
+2026-06-25 16:03:46 | INFO | P07 | ======================
+2026-06-25 16:03:46 | INFO | P07 | Include instructions and specifics in your README.md file.
+2026-06-25 16:03:46 | INFO | P07 | Write up your narrative on your docs/index.md file.
+2026-06-25 16:03:46 | INFO | P07 | Include your next step suggestions for further analysis or modeling.
+2026-06-25 16:03:46 | INFO | P07 | ======================
+2026-06-25 16:03:46 | INFO | P07 | ----- in a script, call plt.show() once at the end to display all charts -----
+2026-06-25 16:03:46 | INFO | P07 | ----- in a script, close the chart windows (with the close button) to continue  -----
+2026-06-25 16:04:18 | INFO | P07 | Linear regression workflow complete
+2026-06-25 16:04:18 | INFO | P07 | IMPORTANT: This script creates chart windows.
+2026-06-25 16:04:18 | INFO | P07 | Close any chart windows and terminate this process with CTRL+c as needed.
+2026-06-25 16:04:18 | INFO | P07 | ========================
+2026-06-25 16:04:18 | INFO | P07 | Executed successfully!
+2026-06-25 16:04:18 | INFO | P07 | ========================

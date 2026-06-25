@@ -8,17 +8,7 @@
 
 ## Project Goal
 
-This project introduces **linear regression**, the process of
-fitting a model to data and using it to make predictions.
-
-Think about two variables that might be related:
-
-- Does study time predict exam scores?
-- Does temperature predict energy usage?
-- Does advertising spend predict revenue?
-
-Your goal: run the example, read the code,
-and apply the same approach to a dataset and question of your own choosing.
+Improve Linear Regression
 
 
 ## Command Reference
@@ -77,38 +67,25 @@ git push -u origin main
 
 ## Findings and Visuals
 
-Take screenshots of your charts and provide them here with a discussion.
-In Markdown, display a figure by using:
-an exclamation mark immediately followed by square brackets containing a useful caption
-immediately followed by parentheses containing the relative path to your figure.
-Note: When you start typing the path with a dot (.) for "here, in this directory",
-the IDE may help complete the path.
+## Penguins: There's a linear Relationship
 
-In your custom project, discuss these examples, but
+![Penguin Linear](./docs/images/Figure_1.png)
 
-- your figures and narrative should reflect your work,
-- this `README.md` should include your commands, process, and visuals, and
-- `docs/index.md` should include your narrative.
-
-Remove unnecessary instructional comments in your custom files.
-
-Update these figures to present interesting results from your custom project:
-
-## Penguins: Is there a linear relationship?
-
-![Provide a Useful Caption](./docs/images/Figure_1.png)
-
-![Provide a Useful Caption](./docs/images/Figure_2.png)
+![Penguin Residuals](./docs/images/Figure_2.png)
 
 ## World Data: Is there a linear relationship? How can you improve the analysis?
 
-![Provide a Useful Caption](./docs/images/Figure_3.png)
+![Original Analysis](./docs/images/Figure_3.png)
 
-![Provide a Useful Caption](./docs/images/Figure_4.png)
+![Original Analysis](./docs/images/Figure_4.png)
+
+## The first thing we can do to improve the linear relationship is exclude global/world GDP values
+
+![World Excluded](./artifacts/GDP_Exlude_Global_vs_CO2_Emissions_linear_co2.png)
+
+![World Excluded Residuals](./artifacts/GDP_Exlude_Global_residual_co2.png)
 
 ## Project Documentation
-
-Additional instructions, terms, and project notes:
 
 [docs/index.md](docs/index.md)
 

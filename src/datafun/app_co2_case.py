@@ -93,8 +93,8 @@ FEATURE_COL: Final[str] = "gdp"
 TARGET_COL: Final[str] = "co2"
 
 # CUSTOM: Assign readable labels for the charted variables.
-FEATURE_LABEL: Final[str] = "GDP"
-TARGET_LABEL: Final[str] = "CO2_emissions"
+FEATURE_LABEL: Final[str] = "GDP_Exlude_Global"
+TARGET_LABEL: Final[str] = "CO2_Emissions"
 
 # CUSTOM: A single feature value to predict the target for, as an example.
 # Pick a value inside (or near) the range of the data you observed in EDA.
@@ -161,17 +161,17 @@ def make_model_view(df: pd.DataFrame) -> pd.DataFrame:
     # dropna(subset=...) only looks at the specified columns, not the whole row.
     # .copy() creates a new DataFrame so we don't accidentally modify the original.
     df_model: pd.DataFrame = df.dropna(subset=cols_required).copy()
-
+    filtered_df_model: pd.DataFrame = df_model[df_model["country"] != "World"]
     # Report what was kept and what was dropped
     count_original: int = df.shape[0]
-    count_model: int = df_model.shape[0]
+    count_model: int = filtered_df_model.shape[0]
     count_dropped: int = count_original - count_model
 
     LOG.info(f"Original rows: {count_original}")
-    LOG.info(f"Model rows:    {count_model}")
+    LOG.info(f"Model rows:    {filtered_df_model}")
     LOG.info(f"Rows dropped:  {count_dropped}")
 
-    return df_model
+    return filtered_df_model
 
 
 # === Section 4. Build the Feature Matrix X and Target Vector y ===
@@ -421,8 +421,7 @@ def make_plots(
 
     # The observed points
     scatter_plt: Axes = sns.scatterplot(
-        x=feature_values,
-        y=target_values,
+        x=feature_values, y=target_values, hue=df_model['country']
     )
 
     # The fitted line. Sort by x so the line is drawn left to right.
@@ -432,6 +431,10 @@ def make_plots(
     scatter_plt.set_xlabel(FEATURE_LABEL)
     scatter_plt.set_ylabel(TARGET_LABEL)
     scatter_plt.set_title(f"{FEATURE_LABEL} vs {TARGET_LABEL} with fitted line")
+    scatter_plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+
+    # 3. Prevent the legend from getting cut off in the saved file
+    plt.tight_layout()
     plt.savefig(ARTIFACTS_DIR / f"{FEATURE_LABEL}_vs_{TARGET_LABEL}_linear_co2.png")
     # IN NOTEBOOK: SHOW AS YOU GO
     #      plt.show() displays the current chart and closes it
