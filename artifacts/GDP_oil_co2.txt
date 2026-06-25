@@ -1,0 +1,5 @@
+R-squared: 0.9394
+  RMSE:      519.285  (in units of oil_co2)
+  residual min:  -1706.46
+  residual max:  4633.64
+  residual mean: 1.18116e-14

@@ -2,7 +2,8 @@
 
 This site provides project documentation.
 Use the documentation navigation to explore.
-
+## Custom Project
+The original CO2 analysis compared GDP and CO2 emissions. The linear regressions is a good fit in the beginning, but once GDP surpasses "0.4" the model misses. This instantly raised two questions for me. Is inflation considered in GDP? Are various currencies standardized to be comparable?
 ## How-To Guide
 
 Many instructions are common to all our projects.

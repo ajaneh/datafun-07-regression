@@ -1,0 +1,5 @@
+R-squared: 0.0028
+  RMSE:      5.7268  (in units of CO2_per_capita)
+  residual min:  -7.93458
+  residual max:  12.9687
+  residual mean: -8.76644e-16

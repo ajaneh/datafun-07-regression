@@ -1,0 +1,5 @@
+R-squared: -310201446723099893449097216.0000
+  RMSE:      1.1384e+17  (in units of CO2_emissions)
+  residual min:  -6.89832e+17
+  residual max:  -4.34894e+15
+  residual mean: -4.58377e+16

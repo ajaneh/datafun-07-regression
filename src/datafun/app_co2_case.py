@@ -39,6 +39,7 @@ OBS:
 # === Section 1a. DECLARE IMPORTS (BRING IN FREE CODE) ===
 
 import logging  # for type hinting only
+from pathlib import Path
 from typing import Final  # for type hinting
 
 from datafun_toolkit.logger import get_logger, log_header
@@ -53,6 +54,9 @@ from sklearn.linear_model import LinearRegression
 # A seaborn plot is a set of axes. Set title, labels, etc. on the axes.
 # A figure can contain multiple axes (plots)
 # from matplotlib.figure import Figure
+ROOT_DIR: Final[Path] = Path.cwd()
+ARTIFACTS_DIR: Final[Path] = ROOT_DIR / "artifacts"
+# Path.mkdir(ARTIFACTS_DIR, parents=True,exist_ok=True)
 
 # === Section 1b. CONFIGURE LOGGER ONCE PER MODULE ===
 
@@ -90,7 +94,7 @@ TARGET_COL: Final[str] = "co2"
 
 # CUSTOM: Assign readable labels for the charted variables.
 FEATURE_LABEL: Final[str] = "GDP"
-TARGET_LABEL: Final[str] = "CO2 emissions"
+TARGET_LABEL: Final[str] = "CO2_emissions"
 
 # CUSTOM: A single feature value to predict the target for, as an example.
 # Pick a value inside (or near) the range of the data you observed in EDA.
@@ -351,10 +355,16 @@ def examine_fit(
     LOG.debug(f"  residual max:  {float(np.max(residuals)):.6g}")
     LOG.debug(f"  residual mean: {float(np.mean(residuals)):.6g}")
 
-    LOG.info("""
-CUSTOM: Update these notes and use Markdown cells to narrate what you see.
+    with open(ARTIFACTS_DIR / f"{FEATURE_LABEL}_{TARGET_LABEL}.txt", 'w') as f:
+        f.write(f"R-squared: {r_squared:.4f}\n")
+        f.write(f"  RMSE:      {rmse:.6g}  (in units of {TARGET_LABEL})\n")
+        f.write(f"  residual min:  {float(np.min(residuals)):.6g}\n")
+        f.write(f"  residual max:  {float(np.max(residuals)):.6g}\n")
+        f.write(f"  residual mean: {float(np.mean(residuals)):.6g}\n")
 
-How to read these (this is YOUR judgment, not the script's):
+    """CUSTOM: Update these notes and use Markdown cells to narrate what you see.
+
+    How to read these (this is YOUR judgment, not the script's):
 
  - R-squared near 1: the line accounts for most of the variation in y.
  - R-squared near 0: the line accounts for almost none.
@@ -370,7 +380,7 @@ How to read these (this is YOUR judgment, not the script's):
 There is no threshold that decides this for you.
 Look at the numbers and the plots together and
 write down what you conclude.
-""")
+"""
 
     return residuals
 
@@ -422,7 +432,7 @@ def make_plots(
     scatter_plt.set_xlabel(FEATURE_LABEL)
     scatter_plt.set_ylabel(TARGET_LABEL)
     scatter_plt.set_title(f"{FEATURE_LABEL} vs {TARGET_LABEL} with fitted line")
-
+    plt.savefig(ARTIFACTS_DIR / f"{FEATURE_LABEL}_vs_{TARGET_LABEL}_linear_co2.png")
     # IN NOTEBOOK: SHOW AS YOU GO
     #      plt.show() displays the current chart and closes it
     #      Call this before starting a new chart
@@ -452,7 +462,7 @@ def make_plots(
     residual_plt.set_xlabel(FEATURE_LABEL)
     residual_plt.set_ylabel(f"Residual ({TARGET_LABEL})")
     residual_plt.set_title(f"Residuals vs {FEATURE_LABEL}")
-
+    plt.savefig(ARTIFACTS_DIR / f"{FEATURE_LABEL}_residual_co2.png")
     # IN NOTEBOOK: SHOW AS YOU GO
     #      plt.show() displays the current chart and closes it
     # IN SCRIPT: WAIT TO SHOW TILL THE END
